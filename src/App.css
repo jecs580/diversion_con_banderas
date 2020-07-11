@@ -1,7 +1,15 @@
 .App {
   text-align: center;
 }
-
+:root{
+  --black:#111517;
+  --white:white;
+  --background: #fafafa;
+}
+body{
+  font-family: 'Nunito Sans', sans-serif;
+  color:var(--black);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

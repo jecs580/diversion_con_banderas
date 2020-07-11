@@ -1,9 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
+import CountryList from "./country-list";
 import "./App.css";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <CountryList
+      />
+    </div>
+  );
 }
 
 export default App;
