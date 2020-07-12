@@ -36,7 +36,8 @@ const CountryStyled = styled.div`
 function Country({ flag, name, population, region, capital }) {
   return (
     <CountryStyled>
-      <img src={flag} alt="" />
+      {/* loading="lazi":Atributo de html que sirve para hacer una peticion de ese atributo a medida que vas haciendo scroll, por defecto carga una cantidad pequeña de datos.Ojo para que esto puedas verlo debes tener desabilitado la cache del browser*/}
+      <img loading="lazy" src={flag} alt="" />
       <div className="details">
         <h2>{name}</h2>
         <p>

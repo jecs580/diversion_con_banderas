@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect ,useState} from "react";
 import styled from 'styled-components'
 import Country from './country';
 const CountryListStyled=styled.div`
@@ -11,26 +11,38 @@ const CountryListStyled=styled.div`
 `
 
 function CountryList() {
+    const [countryList,setCountryList]=useState([]);
+    // hook --> useEffect
+    useEffect(()=>{
+        fetch('https://restcountries.eu/rest/v2/all')
+        .then((res)=>{
+            return res.json();
+        })
+        .then((data)=>{
+            setCountryList(data)
+            console.log(data);
+        })
+        .catch(()=>{
+            console.log("Ops, Ocurrio un error");
+        })
+    },[])
     return (
         <CountryListStyled>
-            <Country
-             flag="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Flag_of_Bolivia_%28state%29.svg/1280px-Flag_of_Bolivia_%28state%29.svg.png"
-             name="Bolivia"
-             population={12345}
-             region="America"
-             capital="Sucre"/>
-            <Country
-             flag="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Flag_of_Bolivia_%28state%29.svg/1280px-Flag_of_Bolivia_%28state%29.svg.png"
-             name="United States of America"
-             population={323947000}
-             region="Americas"
-             capital="Washington. D.C."/>
-            <Country
-             flag="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Flag_of_Bolivia_%28state%29.svg/1280px-Flag_of_Bolivia_%28state%29.svg.png"
-             name="Bolivia"
-             population={12345}
-             region="America"
-             capital="Sucre"/>
+            {
+                countryList.map(({flag,name,population,region,capital})=>{
+                    return (
+                        <Country
+                        flag={flag}
+                        name={name}
+                        population={population}
+                        region={region}
+                        capital={capital}
+                        key={name}/>
+                    )
+                })
+            }
+           
+           
         </CountryListStyled>
     )
 }
