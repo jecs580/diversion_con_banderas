@@ -1,6 +1,7 @@
 import React,{useEffect ,useState} from "react";
 import styled from 'styled-components'
 import Country from './country';
+import {useSelector, useDispatch} from 'react-redux'
 const CountryListStyled=styled.div`
     display:grid;
     grid-row-gap:2.3em;
@@ -11,16 +12,21 @@ const CountryListStyled=styled.div`
 `
 
 function CountryList() {
-    const [countryList,setCountryList]=useState([]);
+    const dispatch =useDispatch()
+    const countryList=useSelector((state)=>state.countryList)
+    console.log('El estado total de mi app es:',countryList);
     // hook --> useEffect
     useEffect(()=>{
         fetch('https://restcountries.eu/rest/v2/all')
         .then((res)=>{
             return res.json();
         })
-        .then((data)=>{
-            setCountryList(data)
-            console.log(data);
+        .then((list)=>{
+            dispatch({
+                type:'SET_COUNTRY_LIST',
+                payload:list
+            })
+            console.log(list.length);
         })
         .catch(()=>{
             console.log("Ops, Ocurrio un error");
