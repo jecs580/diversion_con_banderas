@@ -1,6 +1,7 @@
 import React,{useEffect ,useState} from "react";
 import styled from 'styled-components'
 import Country from './country';
+import Input from './input'
 import {useSelector, useDispatch} from 'react-redux'
 const CountryListStyled=styled.div`
     display:grid;
@@ -9,6 +10,7 @@ const CountryListStyled=styled.div`
     border: 1px solid red;
     justify-content:center;
     padding: 4em 2em;
+    grid-template-columns :1fr;
 `
 
 function CountryList() {
@@ -58,7 +60,7 @@ function CountryList() {
     }
     return (
         <CountryListStyled>
-            <input type="text" value={inputValue} onChange={filterByName}/>
+            <Input placeholder="Serch for a country..." value={inputValue} onChange={filterByName}/>
             {
                 inputValue && <button onClick={clearInput}>X</button>
             }
