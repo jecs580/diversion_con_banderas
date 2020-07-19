@@ -9,6 +9,7 @@
 body{
   font-family: 'Nunito Sans', sans-serif;
   color:var(--black);
+  background: var(--background);
 }
 .App-logo {
   height: 40vmin;

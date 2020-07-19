@@ -6,7 +6,13 @@ export default function reducer(state, action) {
         return {...state, countryList: action.payload} // spredd operator
       
       case 'SET_COUNTRY_BY_NAME':
-        const countryListByName=(state.countryList || []).filter(country => country.name.toLowerCase().includes(action.payload.toLowerCase()))
+        let list
+        if(state.filterByRegion!==''){
+          list=state.countryFilteredByRegion
+        }else{
+          list=state.countryList
+        }
+        const countryListByName=list.filter(country => country.name.toLowerCase().includes(action.payload.toLowerCase()))
         return {...state, countryListByName}
   
       case 'FILTER_BY_REGION':

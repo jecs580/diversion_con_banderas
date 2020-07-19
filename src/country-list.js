@@ -1,7 +1,6 @@
-import React,{useEffect ,useState} from "react";
+import React,{useEffect } from "react";
 import styled from 'styled-components'
 import Country from './country';
-import Input from './input'
 import {useSelector, useDispatch} from 'react-redux'
 const CountryListStyled=styled.div`
     display:grid;
@@ -10,15 +9,14 @@ const CountryListStyled=styled.div`
     border: 1px solid red;
     justify-content:center;
     padding: 4em 2em;
-    grid-template-columns :1fr;
+    /* grid-template-columns :1fr; */
 `
 
 function CountryList() {
-    const [inputValue, setInputValue]=useState('')
     const dispatch =useDispatch()
     const countryListByName= useSelector((state)=> state.countryListByName)
     const countryList=useSelector((state)=>{
-        if('' !== state.filterByRegion){
+        if('' !== state.filterByRegion && countryListByName.length === 0){
             return state.countryFilteredByRegion
         }
         if(countryListByName.length> 0){
@@ -44,29 +42,10 @@ function CountryList() {
             console.log("Ops, Ocurrio un error");
         })
     },[])
-    const filterByName=(e)=>{
-        setInputValue(e.target.value)
-        dispatch({
-            type:'SET_COUNTRY_BY_NAME',
-            payload:e.target.value
-        })
-    }
-    const clearInput=()=>{
-        dispatch({
-            type:'SET_COUNTRY_BY_NAME',
-            payload:''
-        })
-        setInputValue('')
-    }
+
+
     return (
         <CountryListStyled>
-            <Input placeholder="Serch for a country..." value={inputValue} onChange={filterByName}/>
-            {
-                inputValue && <button onClick={clearInput}>X</button>
-            }
-            {
-                countryListByName.length===0 && inputValue && <p><strong>{inputValue}</strong> no se encuetra en los paises</p>
-            }
             {
                 countryList.map(({flag,name,population,region,capital})=>{
                     return (
