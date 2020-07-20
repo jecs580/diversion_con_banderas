@@ -1,5 +1,5 @@
 export default function reducer(state, action) {
-    console.log(action);
+    // console.log(action);
     switch (action.type) {
       case 'SET_COUNTRY_LIST':
         console.log('Actualizando los datos');

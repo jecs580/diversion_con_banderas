@@ -6,7 +6,7 @@ const CountryListStyled=styled.div`
     display:grid;
     grid-row-gap:2.3em;
     background:var(--background);
-    border: 1px solid red;
+    /* border: 1px solid red; */
     justify-content:center;
     padding: 4em 2em;
     /* grid-template-columns :1fr; */
@@ -24,7 +24,7 @@ function CountryList() {
         }
         return state.countryList
     })
-    console.log('El estado total de mi app es:',countryList);
+    // console.log('El estado total de mi app es:',countryList);
     // hook --> useEffect
     useEffect(()=>{
         fetch('https://restcountries.eu/rest/v2/all')
@@ -36,7 +36,7 @@ function CountryList() {
                 type:'SET_COUNTRY_LIST',
                 payload:list
             })
-            console.log(list.length);
+            // console.log(list.length);
         })
         .catch(()=>{
             console.log("Ops, Ocurrio un error");

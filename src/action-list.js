@@ -15,7 +15,7 @@ function ActionList() {
     return (
         <ActionListStyled>
             <Wrapper>
-                <div class="grid">
+                <div className="grid">
                 <Serch/>
                 <Region/>
                 </div>

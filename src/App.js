@@ -15,7 +15,7 @@ const store=createStore(reducer,initialState)
 function App() {
   return (
     <Provider store={store}>
-    <i class="far fa-moon"></i>
+    <i className="far fa-moon"></i>
     <div className="App">
       <ActionList/>
       <CountryList
