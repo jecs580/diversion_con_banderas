@@ -5,6 +5,7 @@ import "./App.css";
 import reducer from './reducer'
 import CountryList from "./country-list";
 import ActionList from './action-list'
+import Header from './header'
 const initialState={
   countryList:[],
   countryListByName:[],
@@ -15,12 +16,10 @@ const store=createStore(reducer,initialState)
 function App() {
   return (
     <Provider store={store}>
-    <i className="far fa-moon"></i>
-    <div className="App">
+      <Header/>
       <ActionList/>
       <CountryList
       />
-    </div>
     </Provider>
   );
 }
