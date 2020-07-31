@@ -6,6 +6,8 @@ import reducer from './reducer'
 import CountryList from "./country-list";
 import ActionList from './action-list'
 import Header from './header'
+import CountryPage from './country-page'
+import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
 const initialState={
   countryList:[],
   countryListByName:[],
@@ -16,10 +18,17 @@ const store=createStore(reducer,initialState)
 function App() {
   return (
     <Provider store={store}>
+      <Router>
       <Header/>
+      <Switch>
+      <Route path="/country/:id" component={CountryPage}>
+      </Route>
+      <Route path="/">
       <ActionList/>
-      <CountryList
-      />
+      <CountryList/>
+      </Route>
+      </Switch>
+      </Router>
     </Provider>
   );
 }

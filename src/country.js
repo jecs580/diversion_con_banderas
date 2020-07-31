@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useHistory } from "react-router-dom";
 const CountryStyled = styled.div`
   width: 264px;
   text-align: left;
@@ -33,10 +33,13 @@ const CountryStyled = styled.div`
     margin: 0.4rem 0;
   }
 `;
-
 function Country({ flag, name, population, region, capital }) {
+  const history=useHistory();
+  function handleClick() {
+    history.push(`/country/${name}`);
+  }
   return (
-    <CountryStyled>
+    <CountryStyled onClick={handleClick}>
       {/* loading="lazi":Atributo de html que sirve para hacer una peticion de ese atributo a medida que vas haciendo scroll, por defecto carga una cantidad pequeña de datos.Ojo para que esto puedas verlo debes tener desabilitado la cache del browser*/}
       <img loading="lazy" src={flag} alt="" />
       <div className="details">
