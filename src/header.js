@@ -28,6 +28,7 @@ const HeaderStyled=styled.div`
     }
     .title{
         text-decoration:none;
+        color:var(--black)
     }
 `
 

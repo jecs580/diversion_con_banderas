@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 const CountryStyled = styled.div`
-  width: 264px;
+  /* width: 264px; */
+  cursor:pointer;
   text-align: left;
   box-shadow: 0 0 7px 2px rgba(0,0,0,0.03);
   border-radius:5px;
