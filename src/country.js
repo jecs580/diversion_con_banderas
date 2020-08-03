@@ -8,15 +8,25 @@ const CountryStyled = styled.div`
   box-shadow: 0 0 7px 2px rgba(0,0,0,0.03);
   border-radius:5px;
   margin:auto;
-  overflow:hidden;
+  /* overflow:hidden; */
+  &:hover .details{
+    border-radius: 0 0 5px 5px;
+    border:1px solid var(--black);
+    border-top:none;
+  }
   img {
+    border-radius:5px 5px 0 0;
     width: 100%;
     height: 160px;
     object-fit: cover;
+    vertical-align:top;
   }
   .details {
     padding:1.2em 1.5em;
     padding-bottom:2.5em;
+    border:1px solid transparent;
+    border-top:none;
+    transition:.3s border;
   }
   h2 {
     margin: 0;
