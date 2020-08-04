@@ -30,6 +30,15 @@ const HeaderStyled=styled.div`
         text-decoration:none;
         color:var(--black)
     }
+    @media screen and (min-width:768px){
+        margin-bottom:3em;
+        h1{
+            font-size:24px;
+        }
+        p{
+            font-size:1rem !important;
+        }
+    }
 `
 
 function Header() {
@@ -40,7 +49,11 @@ function Header() {
         <HeaderStyled>
             <Wrapper>
             <div className="content">
-                <Link className="title" to='/'>Where in the world?</Link>
+                <Link className="title" to='/'>
+                    <h1>
+                    Where in the world?
+                    </h1>
+                    </Link>
                 <div className="dark-mode">
                     <p onClick={handleClick}>
                         <span className="moon">

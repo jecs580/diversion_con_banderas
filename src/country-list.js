@@ -12,7 +12,7 @@ const CountryListStyled=styled.div`
     grid-template-columns:repeat(auto-fill,270px);
     /* border: 1px solid red; */
     justify-content:center;
-    padding: 4em 0;
+    padding: 3em 0;
     /* grid-template-columns :1fr; */
 `
 
