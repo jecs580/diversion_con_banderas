@@ -27,6 +27,7 @@ const CountryStyled = styled.div`
     border:1px solid transparent;
     border-top:none;
     transition:.3s border;
+    background: var(--white)
   }
   h2 {
     margin: 0;
