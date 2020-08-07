@@ -28,6 +28,7 @@ function countrySelected({
     topLevelDomain,
     currencies=[],
     languages=[],
+    borders=[]
 }) {
     return (
         <div>
@@ -42,6 +43,7 @@ function countrySelected({
                 <p><strong>Top Level Domain:</strong> {topLevelDomain}</p>
                 <p><strong>Currencies:</strong> {currencies.map((item)=> <span>{item.name}</span>)}</p>
                 <p className="languages"><strong>Languages:</strong> {languages.map((item)=> <span>{item.name}</span>)}</p>
+                <p className="borders"><strong>Borders:</strong> {borders.map((item)=> <span>{item}</span>)}</p>
 
                 <img src={flag} alt=""/>
             </CountrySelectedStyled>
