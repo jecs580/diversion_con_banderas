@@ -45,14 +45,14 @@ function CountryList() {
         .catch(()=>{
             console.log("Ops, Ocurrio un error");
         })
-    },[])
+    })
 
 
     return (
         <Wrapper>
         <CountryListStyled>
             {
-                countryList.map(({flag,name,population,region,capital})=>{
+                countryList.map(({flag,name,population,region,capital, nativeName, cioc,alpha2Code })=>{
                     return (
                         <Country
                         flag={flag}
@@ -60,7 +60,11 @@ function CountryList() {
                         population={population}
                         region={region}
                         capital={capital}
-                        key={name}/>
+                        key={name}
+                        nativeName={nativeName}
+                        cioc={cioc}
+                        alpha2Code={alpha2Code}
+                        />
                     )
                 })
             }

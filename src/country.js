@@ -46,10 +46,12 @@ const CountryStyled = styled.div`
     margin: 0.4rem 0;
   }
 `;
-function Country({ flag, name, population, region, capital }) {
+function Country({ flag, name, population, region, capital, nativeName,cioc,alpha2Code }) {
   const history=useHistory();
+  // const id=cioc || name;
+
   function handleClick() {
-    history.push(`/country/${slugify(name)}`);
+    history.push(`/country/${slugify(alpha2Code)}`); // Crea una ruta especifica
   }
   return (
     <CountryStyled onClick={handleClick}>

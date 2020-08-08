@@ -41,7 +41,8 @@ function App() {
       <Router>
       <Header setDarkMode={setDarkMode} darkMode={darkMode} />
       <Switch>
-      <Route path="/country/:id" component={CountryPage}>
+      <Route path="/country/:id" component={CountryPage}> 
+      {/* Con Route --> Redirecciona asi a un componente si existen coincidencias */}
       </Route>
       <Route path="/">
       <ActionList/>

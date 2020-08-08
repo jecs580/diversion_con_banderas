@@ -13,32 +13,38 @@ const CountryPageStyled=styled.div`
     cursor: pointer;
     font-weight:300;
     border:none;
+    margin-top:1em;
     i{
         margin-right:5px;
     }
 }
 
+@media screen and (min-width:1024px){
+    .back{
+        margin-top:3em;
+    }
+}
 `
 
 function CountryPage({ match, history}) {
-    console.log(history);
-    let DBcountry = useSelector(state => state.countryList.find(item => item.name === match.params.id.replace('-',' ')))
+    console.log("HISTORY",history);
+    let DBcountry = useSelector(state => state.countryList.find(item => item.alpha2Code  === match.params.id.replace('-',' '))) // match viene de props, que muestra la ruta actual y los parametros que contiene.
     const [country,setCountry]=useState(DBcountry)
-    console.log(DBcountry);
+    // console.log(DBcountry);
     useEffect(()=>{
         if(DBcountry){
             
         }
         if(!country){
-            fetch(`https://restcountries.eu/rest/v2/name/${match.params.id}`)
+            fetch(`https://restcountries.eu/rest/v2/alpha/${match.params.id}`)
             .then((resonse)=>{
                 return resonse.json()
             })
             .then((data)=>{
-                setCountry(data[0]);
+                setCountry(data);
             })
         }
-    },[country, match.params.id])
+    })
     function handleClick() {
         history.goBack();
     }
@@ -47,7 +53,6 @@ function CountryPage({ match, history}) {
             <Wrapper>
                 <button className="back" onClick={handleClick}><i className="fas fa-long-arrow-alt-left"></i> Back</button>
             <CountrySelected {...country}/>
-            {match.params.id}
             </Wrapper>
         </CountryPageStyled>
     )
