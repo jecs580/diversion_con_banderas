@@ -2,7 +2,7 @@ export default function reducer(state, action) {
     // console.log(action);
     switch (action.type) {
       case 'SET_COUNTRY_LIST':
-        console.log('Actualizando los datos');
+        // console.log('Actualizando los datos');
         return {...state, countryList: action.payload} // spredd operator
       
       case 'SET_COUNTRY_BY_NAME':

@@ -27,10 +27,22 @@ const CountryPageStyled=styled.div`
 `
 
 function CountryPage({ match, history}) {
-    console.log("HISTORY",history);
-    let DBcountry = useSelector(state => state.countryList.find(item => item.alpha2Code  === match.params.id.replace('-',' '))) // match viene de props, que muestra la ruta actual y los parametros que contiene.
+    // console.log("HISTORY",match.params.id);
+    // console.log("HISTORY",history);
+    let DBcountry = useSelector(state => state.countryList.find(item => item.alpha3Code  === match.params.id.replace('-',' '))) // match viene de props, que muestra la ruta actual y los parametros que contiene.
+    // console.log("db..>",DBcountry);
+    const aux= DBcountry;
+    
+    // console.log("aux  ",aux.name);
     const [country,setCountry]=useState(DBcountry)
-    // console.log(DBcountry);
+    // console.log(country);
+    if(country){
+        if(typeof aux !== 'undefined'){
+        if(country.alpha3Code!== aux.alpha3Code){
+            setCountry(aux);
+        }
+    }
+    }
     useEffect(()=>{
         if(DBcountry){
             

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Borders from './borders'
 const CountrySelectedStyled=styled.div`
 margin-top:3em;
 padding-bottom:3em;
@@ -61,6 +62,7 @@ function countrySelected({
     languages=[],
     borders=[]
 }) {
+
     return (
         <div>
             <CountrySelectedStyled>
@@ -83,7 +85,8 @@ function countrySelected({
                 </div>
               
                 <p className="borders"><strong>Border Contries:</strong></p>
-                {borders.map((item)=> <span key={item} className="border-item">{item}</span>)}
+                {/* {borders.map((item)=> <span onClick={handleClick} key={item} className="border-item">{item}</span>)} */}
+                {borders.map((item)=> <Borders key={item} className="border-item" item={item}/>)}
                 </div>
             </CountrySelectedStyled>
         </div>
